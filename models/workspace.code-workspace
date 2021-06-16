@@ -1,0 +1,16 @@
+{
+    "folders": [
+		{
+			"path": "../../../vue-nuxt/nuxtproject"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../authRph"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "f8_finally"
+    }
+}
