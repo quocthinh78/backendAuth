@@ -9,8 +9,8 @@ const getProject = async(req, res) => {
     res.json(p)
 }
 createProject = async(req, res) => {
-    const { id, name } = req.body;
-    const newProject = new Project({ name });
+    const { id, name, price } = req.body;
+    const newProject = new Project({ name, price });
     newProject.owner.push(id);
     await newProject.save();
     const owner = await User.findOne({ _id: id });
@@ -25,8 +25,9 @@ deleteProject = async(req, res, next) => {
     ownerId = project.owner[0];
     await project.remove();
     const owner = await User.findById(ownerId);
-    await owner.projects.pull(project);
+    await owner.projects.pull(project._id);
     await owner.save();
+    const task = await Task.findOne({ project: projectId })
     res.json(project);
 }
 module.exports = {

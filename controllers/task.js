@@ -76,6 +76,23 @@ updateTask = async(req, res) => {
     await projectChange.save();
 
 }
+
+/*
+ *dashboard
+ */
+getAllUser = async(req, res) => {
+    const user = await User.find({});
+    res.json(user)
+}
+getProject = async(req, res) => {
+    const project = await Project.find({});
+    res.json(project)
+}
+getTaskD = async(req, res) => {
+    const task = await Task.find({});
+    res.json(task)
+}
+
 module.exports = {
     getTask,
     createTask,
@@ -83,6 +100,8 @@ module.exports = {
     getProject,
     deleteTask,
     getFirstData,
-    updateTask
-
+    updateTask,
+    getAllUser,
+    getProject,
+    getTaskD
 }

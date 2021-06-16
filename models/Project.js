@@ -12,6 +12,7 @@ const ProjectSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Task"
     }],
+    price: { type: Number, default: 0 },
     createdDate: {
         type: Date,
         default: Date.now
